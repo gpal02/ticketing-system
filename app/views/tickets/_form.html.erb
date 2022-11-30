@@ -1,0 +1,26 @@
+<%= form_with model: ticket do |form| %>
+  <div>
+    <%= form.label :number_of_passenger %><br>
+    <%=form.number_field :number_of_passenger%>
+  </div>
+  <div>
+    <%= form.label :passenger_name %><br>
+    <%=form.text_field :passenger_name%>
+  </div>
+  <div>
+    <%= form.label :passenger_age %><br>
+    <%=form.number_field :passenger_age %>
+  </div>
+  <div>
+    <%= form.label :passenger_contact %><br>
+    <%=form.text_field :passenger_contact %>
+  </div>
+  <div>
+    <%= form.label :seat %><br>
+    <%=form.select(:seat, [["A1"]], { include_blank: true }, { class: 'form-select' })%>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

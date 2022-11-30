@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= form_with model: bus do|form| %>
+        <div class="col-12 ">
+          <%= form.label :role_id, class: "form-label"%><br>
+          <%=form.select(:role_id, Role.where.not(id: 1).pluck(:name, :id), { include_blank: true }, { class: 'form-select' })%>          
+          <% bus.errors.full_messages_for(:role_id).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="col-12 ">
+          <%= form.label :bus_number, class: "form-label"%><br>
+          <%= form.text_field :bus_number, class: "form-control" %>
+          <% bus.errors.full_messages_for(:bus_number).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <%= form.label :type, class: "form-label" %><br>
+          <%=form.select(:type, [["AC","AC"],["Non-AC","non-AC"]], { include_blank: true }, { class: 'form-select' })%>
+        </div>
+        <div class="col-6">
+          <%= form.label :source, class: "form-label" %><br>
+          <%= form.text_field :source, class: "form-control"%>
+        </div>
+        <div class="col-6">
+          <%= form.label :destination, class: "form-label" %><br>
+          <%= form.text_field :destination, class: "form-control"%>
+        </div>
+        <div class="col-6">
+          <%= form.label :date, class: "form-label" %><br>
+          <%= form.date_field :date, class: "form-control"%>
+        </div>
+        <div class="col-6">
+          <%= form.label :time, class: "form-label" %><br>
+          <%= form.time_field :time, class: "form-control"%>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+          <%= form.submit :Submit , class: 'btn btn-primary'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

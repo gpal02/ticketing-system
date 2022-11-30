@@ -1,0 +1,14 @@
+<h1>Ticket Information</h1>
+Ticket ID: <%= @ticket.id%><br>
+Seat :<%= @ticket.seat%><br>
+<br>
+<h5>Passenger's Information</h5><br>
+Number of passengers: <%= @ticket.number_of_passenger%><br>
+Name: <%= @ticket.passenger_name%><br>
+Age: <%= @ticket.passenger_age%><br> 
+Contact :<%= @ticket.passenger_contact%><br>
+
+
+<%= link_to "Edit information", edit_ticket_path(@ticket.id),class: "btn btn-secondary" %>
+<%= link_to "Delete", ticket_path(@ticket.id), data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: "btn btn-secondary" %>
+<%= link_to "Back", :back, class: "btn btn-secondary" %>

@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      
+      <%= form_with model: user do|form| %>
+        
+        <div class="col-12">
+          <%= form.label :full_name, class: "form-label"%><br>
+          <%= form.text_field :full_name, class: "form-control" %>
+          <% user.errors.full_messages_for(:full_name).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        
+        <div class="col-12">
+          <%= form.label :email, class: "form-label" %><br>
+          <%= form.email_field :email, class: "form-control" %>
+          <% user.errors.full_messages_for(:email).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        
+        <div class="col-12">
+          <%= form.label :encrypted_password, class: "form-label" %><br>
+          <%= form.password_field :encrypted_password, class: "form-control"%>
+          <% user.errors.full_messages_for(:encrypted_password).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        
+        <div class="col-12">
+          <%= form.label :contact, class: "form-label" %><br>
+          <%= form.telephone_field :contact, class: "form-control" %>
+          <% @user.errors.full_messages_for(:contact).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        
+        <div class="row g-3 align-items-center">
+          <div class="col-6">
+            <%= form.label :gender, class: "form-label" %><br>
+            <%= form.label :gender, "Male"%>
+            <%= form.radio_button :gender, "male"%>
+            <%= form.label :gender, "Female"%>
+            <%= form.radio_button :gender, "female"%>
+            <% @user.errors.full_messages_for(:gender).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+          <div class="col-6">
+            <%= form.label :age, class: "form-label"   %><br>
+            <%= form.number_field :age, class: "form-control" %>
+            <% @user.errors.full_messages_for(:age).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class="col-12">
+          <%= form.label :role_id %><br>
+          <%=form.select(:role_id, Role.pluck(:name, :id), { include_blank: true }, { class: 'form-select' })%>
+          <% @user.errors.full_messages_for(:role_id).each do |message| %>
+          <div><%= message %></div>
+            <% end %>
+        </div>
+        
+        <hr>
+
+        <div class="row justify-content-center">
+          <%= form.submit :Submit, class: "btn btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

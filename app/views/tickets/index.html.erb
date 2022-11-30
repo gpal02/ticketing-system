@@ -1,0 +1,13 @@
+<h1>Tickets</h1>
+<p>Here are list of tickets.</p>
+<ul>
+	<% @tickets.each do|ticket|%>
+	<li>
+		<%= link_to ticket.id, ticket_path(ticket)%>
+	</li>
+	
+	<% end %>
+</ul>
+<%= link_to "Book ticket", new_ticket_path, class: "btn btn-primary"%>
+
+  

@@ -1,0 +1,30 @@
+<h1>Show information</h1>
+<ul>
+	<li>
+		Full Name: <%= @user.full_name %>
+	</li>
+	<li>
+		Email: <%= @user.email %>
+	</li>
+	<li>
+		Encrypted Password: <%= @user.encrypted_password %>
+	</li>
+	<li>
+		Password: <%= @user.password %>
+	</li>
+	<li>
+		Age: <%= @user.age %>
+	</li>
+	<li>
+		Gender: <%= @user.gender %>
+	</li>
+	<li>
+		Contact number :<%= @user.contact %>
+	</li>
+	<li>
+		Role: <%= @user.role_id %>
+	</li>
+</ul>
+<%= link_to "Edit information", edit_user_path(@user.id),class: :"btn btn-secondary" %>
+<%= link_to "Delete", user_path(@user.id), data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: :"btn btn-secondary" %>
+

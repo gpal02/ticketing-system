@@ -1,0 +1,62 @@
+<h1>Buses Information</h1>
+<p>Here are the available buses, you can choose your desired bus.</p>
+
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <center><h3 class="font-bold text-3xl mb-3">Search Buses</h3></center>
+      <div class="d-flex justify-content-center">
+        <%= form_with(url: buses_path, method: :get, data: {turbo_frame: "search"}) do |form| %>
+          <div class="flex space-x-3">
+            <%= form.label :to ,class: "form-label"%>
+            <%= form.text_field :query %>
+            <%= form.label :from %>
+            <%= form.text_field :query %>
+
+            <%= form.submit 'Search', class: "btn btn-primary"%>
+          </div><br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Bus ID</th>
+      <th scope="col">Bus Number</th>
+      <th scope="col">Managed By ID</th>
+      <th scope="col">Source</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Bus Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @buses.each do|bus|%>
+    <tr>
+      <th scope="row"><%=  bus.id%></th>
+      <td><%= link_to bus.bus_number, bus_path(bus.id)%></td>
+      <td><%= %></td>
+      <td><%= bus.source%></td>
+      <td><%= bus.destination %></td>
+      <td><%= bus.date %></td>
+      <td><%= bus.time %></td>
+      <td><%= bus.bus_type %></td>
+      <td>
+        <%= link_to "Book now", new_ticket_path, class: "btn btn-outline-secondary btn-sm"%>
+      </td>
+    </tr>
+    <% end%>
+  </tbody>
+</table>
+<% if @current_user.present?%>
+  <% if can? :create, @bus => Bus%>
+    <%= link_to "Add Bus", new_bus_path, class: "btn btn-outline-info"%>
+  <% end %>
+<% end %>
+
+<p style="color: green"><%= notice %></p>
+
