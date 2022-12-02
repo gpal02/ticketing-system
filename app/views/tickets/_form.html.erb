@@ -1,25 +1,21 @@
-<%= form_with model: ticket do |form| %>
+<%= simple_form_for ticket do |form| %>
   <div>
     <%= form.label :number_of_passenger %><br>
     <%=form.number_field :number_of_passenger%>
   </div>
-  <div>
-    <%= form.label :passenger_name %><br>
-    <%=form.text_field :passenger_name%>
-  </div>
-  <div>
-    <%= form.label :passenger_age %><br>
-    <%=form.number_field :passenger_age %>
-  </div>
-  <div>
-    <%= form.label :passenger_contact %><br>
-    <%=form.text_field :passenger_contact %>
-  </div>
+  
   <div>
     <%= form.label :seat %><br>
     <%=form.select(:seat, [["A1"]], { include_blank: true }, { class: 'form-select' })%>
   </div>
-  
+  <h3>Passangers</h3>
+  <div id="passenger_informations">
+    <%= form.simple_fields_for :passenger_informations do |passenger_information|%>
+      <%= render 'passenger_information_fields', f: passenger_information%>
+    <%end%>
+    <div class="links">
+      <%= link_to_add_association 'Add Passenger',form, :passenger_informations %>
+    </div>
   <div>
     <%= form.submit %>
   </div>

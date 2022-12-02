@@ -4,9 +4,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    puts current_user
     @users = User.all
-    @managers = User.with_role(:manager)
+    @managers = User.with_role(:travels)
   end
 
   # def new_login
@@ -68,10 +67,11 @@ class UsersController < ApplicationController
   # end
 
   def change_status
-
-    @status = User.find(params[:user_id])
-    @status.update(status: params[:status])
-    
+    @user = User.find(params[:id])
+    if params[:status].present? && User::STATUSES.include?(params[:status])
+      @user.update(status: params[:status])
+    end
+    redirect_to root_path, notice: "Status updated to #{@user.status}"
   end
 
   private

@@ -22,6 +22,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem 'simple_form'
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -91,3 +92,6 @@ gem 'devise'
 
 #to use jquery
 gem 'jquery-rails'
+
+#cocoon gem to add field
+gem "cocoon"

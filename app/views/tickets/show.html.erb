@@ -4,9 +4,16 @@ Seat :<%= @ticket.seat%><br>
 <br>
 <h5>Passenger's Information</h5><br>
 Number of passengers: <%= @ticket.number_of_passenger%><br>
-Name: <%= @ticket.passenger_name%><br>
-Age: <%= @ticket.passenger_age%><br> 
-Contact :<%= @ticket.passenger_contact%><br>
+
+<%@information.each do |pi|%>
+------------------
+<br>
+Id:<%= pi.id%><br>
+Name: <%= pi.passenger_name%><br>
+Age: <%= pi.passenger_age%><br> 
+Contact: <%= pi.passenger_contact%><br>
+<%end%>
+
 
 
 <%= link_to "Edit information", edit_ticket_path(@ticket.id),class: "btn btn-secondary" %>

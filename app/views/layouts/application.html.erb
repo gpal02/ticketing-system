@@ -22,29 +22,16 @@
 
         <% if user_signed_in? %>
           Signed in as <%= current_user.email %>. Not you?
-          <%= link_to "Edit profile", edit_user_registration_path %>
-          <%= link_to "Sign out", destroy_user_session_path,  data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}  %>
+
+          <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-outline-secondary btn-sm" %>
+          <%= link_to "Sign out", destroy_user_session_path,  data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: "btn btn-outline-danger btn-sm"  %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> or
-          <%= link_to "sign in", new_user_session_path %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary btn-sm" %> or
+          <%= link_to "sign in", new_user_session_path, class: "btn btn-outline-primary btn-sm" %>
         <% end %>
-
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, id: "flash_#{name}" %>
-        <% end %>
-
-        <!-- <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>    -->
+   
         
-        <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <%if @current_user.present?%>
-            <%= link_to "Logout", destroy_user_session_path, class:'btn btn-outline-danger me-md-2', data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"} %>
-          <%else%>
-            <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-primary me-md-2"%>
-            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-secondary"%>
-            <%= link_to "Logout", destroy_user_session_path, class: "btn btn-outline-danger",  data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}%>
-          <% end %>
-        </div> -->
+        
       </div>
     </nav>
     

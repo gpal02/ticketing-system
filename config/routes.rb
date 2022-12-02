@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     scope '/admin' do
       resources :users do
         member do
+          get :change_status
           patch :change_status
         end
       end
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   # end
   
   resources :buses 
-  resources :tickets
+  resources :tickets do
+    resources :passenger_informations
+  end
 
 end

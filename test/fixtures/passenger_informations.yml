@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  passenger_name: MyString
+  passenger_age: 1
+  passenger_contact: MyString
+  ticket: one
+
+two:
+  passenger_name: MyString
+  passenger_age: 1
+  passenger_contact: MyString
+  ticket: two

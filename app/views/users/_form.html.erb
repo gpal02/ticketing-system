@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-4">
       
-      <%= form_with model: user do|form| %>
+      <%= form_with model: @user do|form| %>
         
         <div class="col-12">
           <%= form.label :full_name, class: "form-label"%><br>
@@ -12,21 +12,7 @@
           <% end %>
         </div>
         
-        <div class="col-12">
-          <%= form.label :email, class: "form-label" %><br>
-          <%= form.email_field :email, class: "form-control" %>
-          <% user.errors.full_messages_for(:email).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
-        </div>
         
-        <div class="col-12">
-          <%= form.label :encrypted_password, class: "form-label" %><br>
-          <%= form.password_field :encrypted_password, class: "form-control"%>
-          <% user.errors.full_messages_for(:encrypted_password).each do |message| %>
-            <div><%= message %></div>
-          <% end %>
-        </div>
         
         <div class="col-12">
           <%= form.label :contact, class: "form-label" %><br>

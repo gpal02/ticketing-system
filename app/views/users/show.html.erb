@@ -7,9 +7,6 @@
 		Email: <%= @user.email %>
 	</li>
 	<li>
-		Encrypted Password: <%= @user.encrypted_password %>
-	</li>
-	<li>
 		Password: <%= @user.password %>
 	</li>
 	<li>
@@ -24,7 +21,11 @@
 	<li>
 		Role: <%= @user.role_id %>
 	</li>
+	<li>
+		Status: <%= @user.status %>
+	</li>
 </ul>
-<%= link_to "Edit information", edit_user_path(@user.id),class: :"btn btn-secondary" %>
-<%= link_to "Delete", user_path(@user.id), data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: :"btn btn-secondary" %>
+<%= link_to "Edit information", edit_user_path(@user.id),class: "btn btn-secondary" %>
+<%= link_to "Delete", user_path(@user.id), data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: "btn btn-secondary" %>
+<%= link_to "Back", :back, class: "btn btn-secondary" %>
 

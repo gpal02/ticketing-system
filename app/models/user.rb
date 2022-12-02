@@ -8,7 +8,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable #, :validatable
 
+
+  STATUSES = ['pending','approved','rejected']
+
   # after_create :add_user_role
+
+  after_initialize :init
+
+  def init
+    self.status ||= STATUSES[0]
+  end
 
   private
   def add_user_role
