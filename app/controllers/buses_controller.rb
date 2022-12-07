@@ -3,13 +3,7 @@ class BusesController < ApplicationController
 
   def index
     @q = Bus.ransack(params[:q])
-    @buses = @q.result(distinct: true).paginate( page: params[:page], per_page: 6)
-    # if params[:query].present?
-    #   @buses = Bus.where("destination || source || bus_number || date LIKE ?", "%#{params[:query]}%")
-    # else
-    #   @buses = Bus.all
-    # end
-    # @buses = @buses.paginate( page: params[:page], per_page: 10)
+    @buses = @q.result(distinct: true).paginate( page: params[:page], per_page: 12)
   end
 
   def show

@@ -101,3 +101,6 @@ gem 'will_paginate', '~> 3.3'
 
 #search/sort gem
 gem 'ransack'
+
+# active admin gem to manage admin
+gem 'activeadmin'
