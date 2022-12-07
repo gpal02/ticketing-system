@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource, except = [:index, :new_login , :new]
   # before_action :check_user, only: [:new, :new_login]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @users = User.all

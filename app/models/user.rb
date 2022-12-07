@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   rolify
 
-  # has_many :tickets
+  has_many :buses
+  has_many :tickets
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,7 +12,7 @@ class User < ApplicationRecord
 
   STATUSES = ['pending','approved','rejected']
 
-  # after_create :add_user_role
+  after_create :add_user_role
 
   after_initialize :init
 

@@ -4,6 +4,7 @@ class CreatePassengerInformations < ActiveRecord::Migration[7.0]
       t.string :passenger_name
       t.integer :passenger_age
       t.string :passenger_contact
+      t.string :seat
       t.belongs_to :ticket, null: false, foreign_key: true
 
       t.timestamps

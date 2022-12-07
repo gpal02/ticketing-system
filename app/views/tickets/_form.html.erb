@@ -1,13 +1,20 @@
 <%= simple_form_for ticket do |form| %>
+
+  <div>
+    <%= form.label :bus_id %><br>
+    <%=form.text_field :bus_id%>
+  </div>
+
   <div>
     <%= form.label :number_of_passenger %><br>
     <%=form.number_field :number_of_passenger%>
   </div>
   
   <div>
-    <%= form.label :seat %><br>
-    <%=form.select(:seat, [["A1"]], { include_blank: true }, { class: 'form-select' })%>
+    <%= form.label :price %><br>
+    <%=form.number_field :price%>
   </div>
+  
   <h3>Passangers</h3>
   <div id="passenger_informations">
     <%= form.simple_fields_for :passenger_informations do |passenger_information|%>
@@ -16,7 +23,11 @@
     <div class="links">
       <%= link_to_add_association 'Add Passenger',form, :passenger_informations %>
     </div>
+  
   <div>
     <%= form.submit %>
   </div>
+
+
 <% end %>
+

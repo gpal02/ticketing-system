@@ -1,52 +1,56 @@
 class TicketsController < ApplicationController
+  load_and_authorize_resource, except = [:index, :new_login , :new]
+
   def index
     @tickets = Ticket.all
     @bus = Bus.all
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
     @information = Ticket.find(params[:id]).passenger_informations
   end
 
   def new
-    @ticket = Ticket.new
+    @ticket = current_user.tickets.new
     @ticket.passenger_informations.new
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
       TicketMailer.with(ticket: @ticket).successfull_mail(@ticket.id).deliver_now
       redirect_to @ticket
+      flash[:success] = "Booked Successfully"
     else
       render 'tickets/show', status: :unprocessable_entity
     end
   end
 
   def edit
-    @ticket = Ticket.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
   end
 
   def update
-    @ticket = Ticket.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
 
     if @ticket.update(ticket_params)
       redirect_to tickets_path
+      flash[:success] = "Updated Successfully"
     else
       render 'tickets/edit', status: :unprocessable_entity
     end
   end
 
   def destroy
-    @ticket = Ticket.find(params[:id])
+    @ticket = current_user.tickets.find(params[:id])
     @ticket.destroy
     redirect_to root_path, status: :see_other
   end
 
   private
   def ticket_params
-    params.require(:ticket).permit(:number_of_passenger,:seat,:user_id,:bus_id, passenger_informations_attributes: [:id, :passenger_name, :passenger_age,:passenger_contact, :_destroy])
+    params.require(:ticket).permit(:price ,:number_of_passenger,:seat,:user_id,:bus_id, passenger_informations_attributes: [:id,:seat, :passenger_name, :passenger_age,:passenger_contact, :_destroy])
   end
 
 end

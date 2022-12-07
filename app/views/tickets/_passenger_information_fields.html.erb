@@ -1,16 +1,23 @@
 <div class="nested-fields">
+  
+  <div>
+    <%= f.label :passenger_name %><br>
+    <%=f.text_field :passenger_name%>
+  </div>
 
-    <div>
-      <%= f.label :passenger_name %><br>
-      <%=f.text_field :passenger_name%>
-    </div>
-    <div>
-      <%= f.label :passenger_age %><br>
-      <%=f.number_field :passenger_age %>
-    </div>
-    <div>
-      <%= f.label :passenger_contact %><br>
-      <%=f.text_field :passenger_contact %>
-    </div>
-    <%= link_to_remove_association "Remove Passenger", f, data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"} %>
+  <div>
+    <%= f.label :passenger_age %><br>
+    <%=f.number_field :passenger_age %>
+  </div>
+
+  <div>
+    <%= f.label :passenger_contact %><br>
+    <%=f.telephone_field :passenger_contact %>
+  </div>
+  <div>
+    <%= f.label :seat %><br>
+    <%=f.text_field :seat%>
+  </div>
+
+    <%= link_to_remove_association "Remove Passenger", f %>
 </div>

@@ -6,14 +6,14 @@
     <div class="card">
       <center><h3 class="font-bold text-3xl mb-3">Search Buses</h3></center>
       <div class="d-flex justify-content-center">
-        <%= form_with(url: buses_path, method: :get, data: {turbo_frame: "search"}) do |form| %>
+        <%= search_form_for @q, url: :buses do |f| %>
           <div class="flex space-x-3">
-            <%= form.label :to ,class: "form-label"%>
-            <%= form.text_field :query %>
-            <%= form.label :from %>
-            <%= form.text_field :query %>
+            <%= f.label :source_cont, 'Source' %>
+          <%= f.search_field :source_cont %>
+          <%= f.label :destination_cont, 'Destination' %>
+          <%= f.search_field :destination_cont %>
 
-            <%= form.submit 'Search', class: "btn btn-primary"%>
+            <%= f.submit 'Search', class: "btn btn-primary"%>
           </div><br>
         <% end %>
       </div>
@@ -24,12 +24,12 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Bus ID</th>
+      <th scope="col"><%= sort_link(@q, :id) %></th>
       <th scope="col">Bus Number</th>
       <th scope="col">Managed By ID</th>
       <th scope="col">Source</th>
       <th scope="col">Destination</th>
-      <th scope="col">Date</th>
+      <th scope="col"><%= sort_link(@q, :date) %></th>
       <th scope="col">Time</th>
       <th scope="col">Bus Type</th>
     </tr>
@@ -52,11 +52,18 @@
     <% end%>
   </tbody>
 </table>
-<% if @current_user.present?%>
+
   <% if can? :create, @bus => Bus%>
     <%= link_to "Add Bus", new_bus_path, class: "btn btn-outline-info"%>
   <% end %>
-<% end %>
 
 <p style="color: green"><%= notice %></p>
+
+
+<div class="digg_pagination">
+  <div class="page_info">
+    <%= page_entries_info @buses %>
+  </div>
+  <%= will_paginate @buses %>
+</div>
 
