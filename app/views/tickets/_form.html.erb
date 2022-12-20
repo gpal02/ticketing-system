@@ -1,8 +1,9 @@
+<div class="container">
+  <div class="card mx-2 p-4">
 <%= simple_form_for ticket do |form| %>
 
   <div>
-    <%= form.label :bus_id %><br>
-    <%=form.text_field :bus_id%>
+    <%=form.hidden_field :bus_id%>
   </div>
 
   <div>
@@ -14,20 +15,24 @@
     <%= form.label :price %><br>
     <%=form.number_field :price%>
   </div>
-  
-  <h3>Passangers</h3>
+
+
+    
+  <h3>Passengers</h3>
   <div id="passenger_informations">
     <%= form.simple_fields_for :passenger_informations do |passenger_information|%>
       <%= render 'passenger_information_fields', f: passenger_information%>
     <%end%>
-    <div class="links">
-      <%= link_to_add_association 'Add Passenger',form, :passenger_informations %>
-    </div>
-  
+    <% unless @ticket.new_record?%>
+    <%else%>
+      <div class="links">
+        <%= link_to_add_association 'Add Passenger',form, :passenger_informations %>
+      </div>
+    <%end%>
   <div>
     <%= form.submit %>
   </div>
 
 
 <% end %>
-
+</div>

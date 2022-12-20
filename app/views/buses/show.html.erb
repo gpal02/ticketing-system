@@ -18,22 +18,9 @@
   <li>
     Time :<%= @bus.time %>
   </li>
-  <li>
-    Seats :<%=@bus.seats.count%><br>
-    <table>
-      <thead>
-        <th>
-          seat id`
-        </th>
-    <% @bus.seats.each do|seat| %>
-      <tbody><td><%=seat.id%></td>
-        <td><%=seat.bus_seats%></td>
-    <%end%>
-      </tbody>
-  </table>
-      
-  </li>
+  
 </ul>
 <%= link_to "Edit information", edit_bus_path(@bus.id),class: "btn btn-secondary" %>
 <%= link_to "Delete", bus_path(@bus.id), data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: "btn btn-secondary" %>
 <%= link_to "Back", :back, class: "btn btn-secondary"%>
+ 

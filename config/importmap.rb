@@ -10,4 +10,4 @@ pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.6/lib/inde
 pin "@nathanvda/cocoon", to: "https://ga.jspm.io/npm:@nathanvda/cocoon@1.2.14/cocoon.js"
 pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.6.1/dist/jquery.js"
-pin "bootstrap", to: "bootstrap.min.js", preload: true
+pin '@fortawesome/fontawesome-free', to: 'https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.1.1/js/all.js'

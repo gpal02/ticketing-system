@@ -1,23 +1,32 @@
-<div class="nested-fields">
-  
-  <div>
-    <%= f.label :passenger_name %><br>
-    <%=f.text_field :passenger_name%>
-  </div>
+<div class="container ">
+  <div class="card mx-2 p-4 bg-light border">
 
-  <div>
-    <%= f.label :passenger_age %><br>
-    <%=f.number_field :passenger_age %>
-  </div>
+    <div class="nested-fields d-flex justify-content-center align-items-center">
+      
+      <div>
+        <%= f.label :passenger_name, class: "form-label" %><br>
+        <%=f.text_field :passenger_name, class: "form-control"%>
+      </div>
 
-  <div>
-    <%= f.label :passenger_contact %><br>
-    <%=f.telephone_field :passenger_contact %>
-  </div>
-  <div>
-    <%= f.label :seat %><br>
-    <%=f.text_field :seat%>
-  </div>
+      <div>
+        <%= f.label :passenger_age, class: "form-label" %><br>
+        <%=f.number_field :passenger_age, class: "form-control"%>
+      </div>
 
-    <%= link_to_remove_association "Remove Passenger", f %>
+      <div>
+        <%= f.label :passenger_contact, class: "form-label" %><br>
+        <%=f.telephone_field :passenger_contact, class: "form-control"%>
+      </div>
+      <div>
+        
+        <%=f.hidden_field :seat%>
+      </div>
+        <% unless @ticket.new_record?%>
+        
+        <%else%>
+          <%= link_to_remove_association "Remove Passenger", f%>
+          <%#= link_to_remove_association 'Remove Passenger', f, data: { confirm: 'Are you sure that you want to remove these nested fields?' } %>
+        <%end%>
+    </div>
+  </div>
 </div>

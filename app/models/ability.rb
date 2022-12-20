@@ -10,8 +10,10 @@ class Ability
     elsif user.has_role? :travels
         can :manage, Bus
     else
+      can :manage, Ticket
       can :read, :all
     end
+
 
     
     # Define abilities for the user here. For example:

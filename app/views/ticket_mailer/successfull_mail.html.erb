@@ -5,13 +5,26 @@
   </head>
   <body>
     <h1>Your Ticket is confirmed,</h1>
-     <%=@ticket.passenger_informations.each do|passenger| %>
-     <%end%>
     <p>
-
       You have successfully signed up to example.com,
       your username is: <%=  %>.<br>
     </p>
+    <ul>
+     <% @ticket.passenger_informations.each do|passenger| %>
+      <li><%= passenger.id %></li>
+      <li><%= passenger.passenger_name %></li>
+      <li><%= passenger.passenger_age %></li>
+      <li><%= passenger.passenger_contact %></li>
+      <li><%= passenger.ticket_id %></li>
+      <li><%= passenger.created_at %></li>
+      <li><%= passenger.seat %></li>
+      <li><%= passenger.updated_at %></li>
+     <%end%>
+   </ul>
+   <% @price = @ticket.price %>
+   <p>Price:<%= @price * @passenger %>
+     
+   </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>

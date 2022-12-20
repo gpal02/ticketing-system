@@ -18,5 +18,9 @@ module TicketingSystem
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    config.assets.paths << "#{Rails.root}/app/assets/stylesheets/font-awesome-4.2.0/css/" 
+    config.assets.paths << "#{Rails.root}/app/assets/stylesheets/bootstrap/" 
+    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
   end
 end

@@ -1,3 +1,5 @@
+
+<div class="card">	
 <h1>Ticket Information</h1>
 Ticket ID: <%= @ticket.id%><br>
 
@@ -26,3 +28,4 @@ Contact: <%= pi.passenger_contact%><br>
 <%= link_to "Edit information", edit_ticket_path(@ticket.id),class: "btn btn-secondary" %>
 <%= link_to "Delete", ticket_path(@ticket.id), data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: "btn btn-secondary" %>
 <%= link_to "Back", :back, class: "btn btn-secondary" %>
+</div>

@@ -3,12 +3,11 @@ class BusesController < ApplicationController
 
   def index
     @q = Bus.ransack(params[:q])
-    @buses = @q.result(distinct: true).paginate( page: params[:page], per_page: 12)
+    @buses = @q.result(distinct: true).page(params[:page])
   end
 
   def show
     @bus = Bus.find(params[:id])
-    @seats = @bus.seats
   end
 
   def new
@@ -18,7 +17,6 @@ class BusesController < ApplicationController
   def create
     @bus = Bus.new(bus_params)
     if @bus.save
-      # @seats = 60.times{  @bus.seats.create(bus_seats: "A1")}
       flash[:success] = "Your Bus Added Successfully!"
       redirect_to buses_path
     else

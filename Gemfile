@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
@@ -7,7 +7,7 @@ ruby '3.1.2'
 gem 'rails', '~> 7.0.4'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-  gem 'sprockets-rails'
+gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
@@ -38,7 +38,7 @@ gem 'jbuilder'
 gem 'bcrypt', '~> 3.1.7'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -52,7 +52,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
-  #letter opener
+  # letter opener
   gem 'letter_opener', group: :development
 end
 
@@ -74,7 +74,7 @@ group :test do
   gem 'webdrivers'
 end
 
-#bootstrap version 5.2.2
+# bootstrap version 5.2.2
 gem 'bootstrap', '~> 5.2.2'
 
 # cancancan 3.4.0 provide authorization who can do what
@@ -85,22 +85,31 @@ gem 'rolify'
 gem 'popper_js', '~> 2.11.5'
 # bootstrap model
 group :assets do
- gem 'bootstrap-modal-rails'
+  gem 'bootstrap-modal-rails'
 end
-#device
+# device
 gem 'devise'
 
-#to use jquery
+# to use jquery
 gem 'jquery-rails'
 
-#cocoon gem to add field
+# cocoon gem to add field
 gem 'cocoon'
 
-#pagination gem
-gem 'will_paginate', '~> 3.3'
+# pagination gem
+# gem 'will_paginate', '~> 3.3'
+gem 'kaminari'
 
-#search/sort gem
+# search/sort gem
 gem 'ransack'
 
 # active admin gem to manage admin
 gem 'activeadmin'
+
+# active merchat payment gem
+gem 'activemerchant'
+# fontawesome
+gem 'font-awesome-rails'
+
+# gem for uploading files
+gem 'paperclip', '~> 6.1'

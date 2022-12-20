@@ -12,7 +12,7 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = current_user.tickets.new
+    @ticket = current_user.tickets.new(bus_id: params[:bus_id])
     @ticket.passenger_informations.new
   end
 
@@ -43,7 +43,12 @@ class TicketsController < ApplicationController
   end
 
   def destroy
+    debugger
     @ticket = current_user.tickets.find(params[:id])
+    passenger_count = @ticket.passenger_informations.count
+    # passenger = @ticket.passenger_informations.find(params[:id])
+    bus = @ticket.bus
+    bus.update(alloted_seats: bus.alloted_seats - passenger_count)
     @ticket.destroy
     redirect_to root_path, status: :see_other
   end

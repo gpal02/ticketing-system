@@ -29,5 +29,49 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
+    content do
+      render ‘’
+    end
+
+    columns do
+      column do
+        panel "Travels" do
+          table do
+            thead do
+              tr do
+                th "Name"
+                th "Email"
+                th "Age"
+                th "Gender"
+                th "Contat"
+                th "Status"
+                tbody do
+                  User.with_role(:travels).each do|travels|
+                    tr 
+                    td travels.full_name
+                    td travels.email
+                    td travels.age
+                    td travels.gender
+                    td travels.contact
+                    td travels.status
+                    td  do
+                      if travels.status=="approved" 
+                         link_to "Reject", change_status_user_path(travels.id, status: "rejected"), method: :patch 
+                      elsif travels.status=="rejected" 
+                         link_to "Approve", change_status_user_path(travels.id, status: "approved"), method: :patch
+                      else 
+                         link_to "Approve", change_status_user_path(travels.id, status: "approved"), method: :patch 
+                         link_to "Reject", change_status_user_path(travels.id, status: "rejected"), method: :patch 
+                      end
+                    end
+                  end
+                end
+              end
+            end  
+          end
+        end
+      end 
+    end
   end # content
 end
+  

@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @managers = User.with_role(:travels)
+    @q = Bus.ransack(params[:q])
+    @buses = @q.result(distinct: true).page(params[:page])
   end
 
   # def new_login
@@ -71,7 +73,7 @@ class UsersController < ApplicationController
     if params[:status].present? && User::STATUSES.include?(params[:status])
       @user.update(status: params[:status])
     end
-    redirect_to root_path, notice: "Status updated to #{@user.status}"
+    redirect_to '/admin/dashboard', notice: "Status updated to #{@user.status}"
   end
 
   private

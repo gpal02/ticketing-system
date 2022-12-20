@@ -2,64 +2,63 @@
 
 <% if can? :manage, @user => User %> 
   
-  <center>
-    <h1>Admin Page</h1>
-    <p>You are admin and you can manage the users</p>
-  </center>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Manager ID</th>
-        <th scope="col">Manager Name</th>
-        <th scope="col">Manager Contact</th>
-        <th scope="col">Email</th>
-        <th scope="col">Password</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Age</th>
-        <th scope="col">Role Id</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @managers.each do|manager|%>
-      <tr>
-        <th scope="row"><%=manager.id%></th>
-        <td><%=link_to manager.full_name, user_path(manager)%></td>
-        <td><%=manager.contact%></td>
-        <td><%=manager.email%></td>
-        <td><%=manager.password%></td>
-        <td><%=manager.gender%></td>
-        <td><%=manager.age%></td>
-        <td><%=manager.role_id%></td>
-        <td>
-          <%= manager.status%>
-          
-        </td>
-        <td>
-          <% if manager.status=="approved" %>
-            <%= link_to "Reject", change_status_user_path(manager.id, status: "rejected"), class:"btn btn-danger btn-sm",method: :patch %>
-          <% elsif manager.status=="rejected" %>
-            <%= link_to "Approve", change_status_user_path(manager.id, status: "approved"), class:"btn btn-success btn-sm", method: :patch %>
-          <% else %>
-            <%= link_to "Approve", change_status_user_path(manager.id, status: "approved"), class:"btn btn-success btn-sm", method: :patch %>
-            <%= link_to "Reject", change_status_user_path(manager.id, status: "rejected"), class:"btn btn-danger btn-sm",method: :patch %>
-          <%end%>
-                
-        </td>
-      </tr>
-      <% end%>
-    </tbody>
-  </table>
-
+  <div class="container">
+    <div class="card mt-5">
+      <center>
+        <h1>Admin Page</h1>
+        <p>You are admin and you can manage the users</p>
+      </center>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Manager ID</th>
+            <th scope="col">Manager Name</th>
+            <th scope="col">Manager Contact</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Age</th>
+            <th scope="col">Role Id</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @managers.each do|manager|%>
+          <tr>
+            <th scope="row"><%=manager.id%></th>
+            <td><%=link_to manager.full_name, user_path(manager)%></td>
+            <td><%=manager.contact%></td>
+            <td><%=manager.email%></td>
+            <td><%=manager.gender%></td>
+            <td><%=manager.age%></td>
+            <td><%=manager.role_id%></td>
+            <td>
+              <%= manager.status%>
+              
+            </td>
+            <td>
+              <% if manager.status=="approved" %>
+                <%= link_to "Reject", change_status_user_path(manager.id, status: "rejected"), class:"btn btn-danger btn-sm",method: :patch %>
+              <% elsif manager.status=="rejected" %>
+                <%= link_to "Approve", change_status_user_path(manager.id, status: "approved"), class:"btn btn-success btn-sm", method: :patch %>
+              <% else %>
+                <%= link_to "Approve", change_status_user_path(manager.id, status: "approved"), class:"btn btn-success btn-sm", method: :patch %>
+                <%= link_to "Reject", change_status_user_path(manager.id, status: "rejected"), class:"btn btn-danger btn-sm",method: :patch %>
+              <%end%>
+                    
+            </td>
+          </tr>
+          <% end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <%else%>
   
-  <center>
-    <h1>Bus Ticketing System</h1>
-    <p>Here you can register yourself and then book a reservation</p>
+  
+  <center >
+    <h1 style="color: black;">Bus Ticketing System</h1>
+    <p style="color: black;">Here you can register yourself and then book a reservation</p>    
   </center>
 
 <% end %>
-
-
-

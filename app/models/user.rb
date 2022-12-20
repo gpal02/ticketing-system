@@ -4,10 +4,12 @@ class User < ApplicationRecord
   has_many :buses
   has_many :tickets
 
+  has_attached_file :avatars
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable #, :validatable
+         :recoverable, :rememberable , :validatable
 
 
   STATUSES = ['pending','approved','rejected']

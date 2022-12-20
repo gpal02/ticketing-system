@@ -1,4 +1,23 @@
 ActiveAdmin.setup do |config|
+  
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add label: "The Application", url: "/", priority: 0
+
+      menu.add label: "Sites" do |sites|
+        sites.add label: "Google",
+                  url: "http://google.com",
+                  html_options: { target: :blank }
+
+        sites.add label: "Facebook",
+                  url: "http://facebook.com"
+
+        sites.add label: "Github",
+                  url: "http://github.com"
+      end
+    end
+  end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
@@ -112,12 +131,12 @@ ActiveAdmin.setup do |config|
   # config.logout_link_method = :get
 
   # == Root
-  #
+  
   # Set the action to call for the root path. You can set different
   # roots for each namespace.
-  #
+  
   # Default:
-  # config.root_to = 'dashboard#index'
+  config.root_to = 'dashboard#index'
 
   # == Admin Comments
   #
@@ -332,4 +351,16 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+
+  config.on_unauthorized_access = :access_denied
+  config.authentication_method = :authenticate_user!
+
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
+
+  config.cancan_ability_class = "Ability"
+
+  config.current_user_method = :current_user
+
+  config.logout_link_path = :destroy_user_session_path
+  config.logout_link_method = :delete
 end
