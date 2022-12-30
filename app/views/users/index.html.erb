@@ -1,4 +1,17 @@
 <%= render "layouts/flash"%>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-6">
+      <center >
+    <h1 style="color: black;">Bus Ticketing System</h1>
+    <p style="color: black;">Here you can register yourself and then book a reservation</p>    
+  </center>
+    </div>
+    <div class="col-6">
+      <%=image_tag("bus.png", alt: "Edit Entry")%>
+    </div>
+  </div>
+</div>
 
 <% if can? :manage, @user => User %> 
   
@@ -56,9 +69,7 @@
   <%else%>
   
   
-  <center >
-    <h1 style="color: black;">Bus Ticketing System</h1>
-    <p style="color: black;">Here you can register yourself and then book a reservation</p>    
-  </center>
+  
 
 <% end %>
+  

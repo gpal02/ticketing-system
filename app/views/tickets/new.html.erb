@@ -2,8 +2,6 @@
   </div class="row">
     <center><h1 style="color: black;">Book Your Ticket Here</h1></center>
     <%= render "form", ticket: @ticket%>
-    <%= link_to "New item", new_ticket_path, class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
 
-    <%= render "remote_modal", title: "New item"%>
   </div>
 </div>

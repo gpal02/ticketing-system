@@ -11,3 +11,7 @@ pin "@nathanvda/cocoon", to: "https://ga.jspm.io/npm:@nathanvda/cocoon@1.2.14/co
 pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.6.1/dist/jquery.js"
 pin '@fortawesome/fontawesome-free', to: 'https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.1.1/js/all.js'
+pin "jquery", to: "jquery.min.js", preload: true
+pin "jquery_ujs", to: "jquery_ujs.js", preload: true
+pin "popper", to: "popper.js", preload: true
+pin "bootstrap", to: "bootstrap.min.js", preload: true

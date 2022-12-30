@@ -1,5 +1,5 @@
 class BusesController < ApplicationController
-    load_and_authorize_resource, except = [:index, :new]
+    load_and_authorize_resource, except = [ :new]
 
   def index
     @q = Bus.ransack(params[:q])

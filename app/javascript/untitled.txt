@@ -1,0 +1,27 @@
+// import "@hotwired/turbo-rails"
+// import "controllers"
+// import "@popperjs/core"
+// import "bootstrap"
+// import "@nathanvda/cocoon"
+// import "jquery"
+
+
+import '@hotwired/turbo-rails'
+import "@popperjs/core"
+//= link application.css
+//= link application.js
+//= link controllers/application.js
+//= link controllers/hello_controller.js
+//= link controllers/index.js
+//= require jquery
+//= require jquery_ujs
+import "bootstrap"
+//= require bootstrap.min 
+//= require cocoon
+//= require bootstrap
+//= controllers
+//= @nathanvda/cocoon
+//= jquery
+//=require 'will_paginate'
+//=require 'will_paginate/active_record'
+//=	 require @fortawesome/fontawesome-free

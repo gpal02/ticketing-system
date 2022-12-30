@@ -56,7 +56,7 @@ ActiveAdmin.register_page "Dashboard" do
                     td travels.status
                     td  do
                       if travels.status=="approved" 
-                         link_to "Reject", change_status_user_path(travels.id, status: "rejected"), method: :patch 
+                         link_to "Reject", change_status_user_path(travels.id, status: "rejected"), method: :patch, class: "btn btn-primary" 
                       elsif travels.status=="rejected" 
                          link_to "Approve", change_status_user_path(travels.id, status: "approved"), method: :patch
                       else 
@@ -74,4 +74,5 @@ ActiveAdmin.register_page "Dashboard" do
     end
   end # content
 end
+  
   

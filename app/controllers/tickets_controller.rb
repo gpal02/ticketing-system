@@ -2,7 +2,7 @@ class TicketsController < ApplicationController
   load_and_authorize_resource, except = [:index, :new_login , :new]
 
   def index
-    @tickets = Ticket.all
+    @tickets = current_user.tickets.all
     @bus = Bus.all
   end
 
@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
   def new
     @ticket = current_user.tickets.new(bus_id: params[:bus_id])
     @ticket.passenger_informations.new
+    # @bus=current_user.tickets.find(params[:id]).bus
   end
 
   def create
@@ -43,10 +44,8 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    debugger
     @ticket = current_user.tickets.find(params[:id])
     passenger_count = @ticket.passenger_informations.count
-    # passenger = @ticket.passenger_informations.find(params[:id])
     bus = @ticket.bus
     bus.update(alloted_seats: bus.alloted_seats - passenger_count)
     @ticket.destroy

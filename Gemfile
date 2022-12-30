@@ -44,7 +44,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -84,9 +84,9 @@ gem 'rolify'
 # popper gem
 gem 'popper_js', '~> 2.11.5'
 # bootstrap model
-group :assets do
-  gem 'bootstrap-modal-rails'
-end
+# group :assets do
+#   gem 'bootstrap-modal-rails'
+# end
 # device
 gem 'devise'
 
@@ -113,3 +113,7 @@ gem 'font-awesome-rails'
 
 # gem for uploading files
 gem 'paperclip', '~> 6.1'
+
+# gem for time-splilliting
+gem "time_splitter"
+

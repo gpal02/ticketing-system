@@ -19,9 +19,9 @@
   </div>
 </div>
 
-<% if current_user == nil ||%>
+<% if current_user == nil %>
   <center><h2 style="color: white;">Please login</h2></center>
-<% elsif current_user.present? && current_user.status == "rejected"%>
+<% elsif current_user.status == "rejected"%>
   <h4> Contact admin to chnage your status  </h4>
 <% elsif current_user.has_role? :admin %>
   <%= link_to "Add Bus", new_bus_path, class:"btn btn-primary text-white" %>
@@ -29,7 +29,7 @@
   <h4>your request is pending
   <%= alert %></h4>  
 <%elsif can? :create, @bus => Bus %>
-  <%= link_to "Add Bus", new_bus_path, class:"btn btn-primary text-white" %>
+  <%= link_to "Add Bus", new_bus_path, class:"btn btn-primary text-white mx-4" %>
 <%end%>
 
 
