@@ -8,6 +8,7 @@ class BusesController < ApplicationController
 
   def show
     @bus = Bus.find(params[:id])
+    @ticket = @bus.tickets.all 
   end
 
   def new
@@ -50,7 +51,7 @@ class BusesController < ApplicationController
 
   private
   def bus_params
-    params.require(:bus).permit(:bus_number, :manager_id, :bus_type, :source, :destination, :date, :time)
+    params.require(:bus).permit(:bus_number, :price, :manager_id, :bus_type, :source, :destination, :date, :time)
   end
 
   

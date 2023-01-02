@@ -10,8 +10,12 @@
           <div class="d-flex justify-content-center align-items-center">
             <%= f.search_field :source_cont, placeholder: "To", class: "form-control mx-2" %>
             <%= f.search_field :destination_cont, placeholder: "From", class: "form-control" %>    
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <%= f.submit 'Search', class: "btn btn-outline-primary mx-2 "%>
+            <%= f.submit class: "btn btn-outline-primary mx-2" do %>
+              <i class="fa-solid fa-magnifying-glass"></i> Search
+            <% end %>
+            <!-- <button type="submit" class="btn btn-outline-primary mx-2">
+              <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button> -->
           </div><br>
         <% end %>
       </div>
@@ -46,6 +50,7 @@
       <th scope="col">Bus Type</th>
       <th scope="col">Total Seats</th>
       <th scope="col">Alloted Seats</th>
+      <th scope="col">Price</th>
     </tr>
   </thead>
   <tbody>
@@ -61,6 +66,7 @@
       <td><%= bus.bus_type %></td>
       <td><%= bus.total_seats %></td>
       <td><%= bus.alloted_seats %></td>
+      <td><%= bus.price %></td>
       <% if current_user == nil or current_user.has_role? :passenger%>
         <td>
           <%= link_to "Book now", new_ticket_path(bus_id: bus.id), class: "btn btn-outline-secondary btn-sm " %>

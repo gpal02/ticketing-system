@@ -9,6 +9,8 @@ User ID: <%= @ticket.user_id%><br>
 
 Bus ID: <%= @ticket.bus_id%><br>
 
+Date: <%= @ticket.bus.date%><br>
+
 <br>
 <h5>Passenger's Information</h5><br>
 Number of passengers: <%= @ticket.number_of_passenger%><br>
@@ -33,5 +35,34 @@ Contact: <%= pi.passenger_contact%><br>
 <br>
 <div>
   <h2>Please Provice valuable your feedback</h2>
-  
+
+<h2>Reviews</h2>
+<% @ticket.reviews.each do |review| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= current_user.email %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= review.comment %>
+  </p>
+<% end %>
+
+  <% if @ticket.bus.date < Date.today%> 
+  <h2>Add a comment:</h2>  
+    <%= form_with model: [ @ticket, @ticket.reviews.build ] do |form| %>
+      <p>
+        <%= form.hidden_field :commenter, value: current_user.email %>
+          
+      </p>
+      <p>
+        <%= form.label :comment %><br>
+        <%= form.text_area :comment %>
+      </p>
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
 </div>
+  <% end %>

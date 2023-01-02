@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       
   resources :tickets do
     resources :passenger_informations
+    resources :reviews
   end
  
 end

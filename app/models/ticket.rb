@@ -2,8 +2,9 @@ class Ticket < ApplicationRecord
   belongs_to :user
   belongs_to :bus
   has_many :passenger_informations
+  has_many :reviews
   accepts_nested_attributes_for :passenger_informations, allow_destroy: true
-  after_create :seat_allocated
+  after_commit :seat_allocated
   before_destroy :destroy_passenger_informations
 
   def destroy_passenger_informations
