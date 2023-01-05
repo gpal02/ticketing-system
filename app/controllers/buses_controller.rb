@@ -9,6 +9,7 @@ class BusesController < ApplicationController
   def show
     @bus = Bus.find(params[:id])
     @ticket = @bus.tickets.all 
+    @travels = Bus.where(manager_id: params[:user_id])
   end
 
   def new

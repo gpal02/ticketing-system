@@ -14,4 +14,4 @@ pin '@fortawesome/fontawesome-free', to: 'https://ga.jspm.io/npm:@fortawesome/fo
 pin "jquery", to: "jquery.min.js", preload: true
 pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 pin "popper", to: "popper.js", preload: true
-pin "bootstrap", to: "bootstrap.min.js", preload: true
+pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.3/dist/js/bootstrap.esm.js"

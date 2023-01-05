@@ -117,3 +117,5 @@ gem 'paperclip', '~> 6.1'
 # gem for time-splilliting
 gem "time_splitter"
 
+
+gem "cssbundling-rails"

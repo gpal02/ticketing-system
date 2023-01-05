@@ -28,7 +28,7 @@
 
 <%@ticket.map{|r| r.reviews}.each do|re|%>
   <% re.each do|review|%>
-    Comments: <%=review.comment%>
+    Comments: <%=review.comment%><br>
   <%end%>
 <%end%>
 

@@ -1,7 +1,9 @@
 //= link_tree ../images
-//= link_directory ../stylesheets .css
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link jquery.js
 //= link bootstrap.min.js
 //= link cocoon.js
+//= link_tree ../builds
+//= link application.css
+//= link custom_style.css

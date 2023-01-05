@@ -1,8 +1,12 @@
-import 'jquery'
-import 'jquery_ujs'
-import 'popper'
-import 'bootstrap'
-import '@nathanvda/cocoon'
-import '@fortawesome/fontawesome-free'
-import '@hotwired/turbo-rails'
-import 'controllers'
+import "@hotwired/turbo-rails"
+import "controllers"
+import "@popperjs/core"
+import "bootstrap"
+//= require jquery
+//= require jquery_ujs
+//= require popper
+//= require @hotwired/turbo-rails
+//= require bootstrap
+//= require @nathanvda/cocoon
+//= require @fortawesome/fontawesome-free
+//= require controllers

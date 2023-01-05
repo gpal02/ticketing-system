@@ -38,6 +38,7 @@
 
 
 <table class="table"  style="background-color: ghostwhite;">
+  <%if @buses.present?%>
   <thead>
     <tr>
       <th scope="col"><%= sort_link(@q, :id) %></th>
@@ -48,12 +49,16 @@
       <th scope="col"><%= sort_link(@q, :date) %></th>
       <th scope="col">Time</th>
       <th scope="col">Bus Type</th>
-      <th scope="col">Total Seats</th>
+      <th scope="col">Available Seats</th>
       <th scope="col">Alloted Seats</th>
       <th scope="col">Price</th>
     </tr>
   </thead>
+  <%else%>
+    <center><h1>No Result Found</h1></center>
+  <%end%>
   <tbody>
+    <%=Bus.where(manager_id: params[:current_user])%>
     <% @buses.each do|bus|%>
     <tr>
       <th scope="row"><%=  bus.id%></th>
@@ -64,7 +69,7 @@
       <td><%= bus.date %></td>
       <td><%= bus.time %></td>
       <td><%= bus.bus_type %></td>
-      <td><%= bus.total_seats %></td>
+      <td><%= bus.total_seats - bus.alloted_seats %></td>
       <td><%= bus.alloted_seats %></td>
       <td><%= bus.price %></td>
       <% if current_user == nil or current_user.has_role? :passenger%>
