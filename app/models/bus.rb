@@ -1,5 +1,7 @@
 class Bus < ApplicationRecord
 
+  ratyrate_rateable 'facility', 'comfort', 'surrounding', 'staff_behaviour', 'driving'
+
   has_many :tickets
   belongs_to :user, foreign_key: :manager_id 
   paginates_per 10

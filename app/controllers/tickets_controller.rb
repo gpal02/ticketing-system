@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  load_and_authorize_resource, except = [:index, :new_login , :new]
+  # load_and_authorize_resource, except = [:index, :new_login , :new]
 
   def index
     @tickets = current_user.tickets.all

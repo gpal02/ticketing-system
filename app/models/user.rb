@@ -11,18 +11,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable , :validatable
 
-
-  STATUSES = ['pending','approved','rejected']
+  validates :email, uniqueness: true
+  validates :username, uniqueness: true
+  
 
   after_create :add_user_role
 
   after_initialize :init
 
+
+  STATUSES = ['pending','approved','rejected']
+  
+
+  private
+  
   def init
     self.status ||= STATUSES[0]
   end
-
-  private
+  
   def add_user_role
     role = Role.find_by(id:role_id)
     self.add_role role.name.to_sym

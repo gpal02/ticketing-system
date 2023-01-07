@@ -24,6 +24,8 @@
 <%= link_to "Delete", bus_path(@bus.id), data: {turbo_method: :delete,turbo_confirm: :"Are you sure?"}, class: "btn btn-secondary" %>
 <%= link_to "Back", :back, class: "btn btn-secondary"%>
  
+
+
 <h2>Reviews</h2>
 
 <%@ticket.map{|r| r.reviews}.each do|re|%>

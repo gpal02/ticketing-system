@@ -119,3 +119,5 @@ gem "time_splitter"
 
 
 gem "cssbundling-rails"
+
+gem 'ratyrate'
