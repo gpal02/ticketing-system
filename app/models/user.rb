@@ -11,14 +11,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable , :validatable
 
-  validates :email, uniqueness: true
-  validates :username, uniqueness: true
-  
 
   after_create :add_user_role
 
   after_initialize :init
 
+  attr_accessor :login
+
+  def self.find_for_database_authentication warden_condition
+    conditions = warden_condition.dup
+    login = conditions.delete(:login)
+    where(conditions).where(
+      ["lower(username) = :value OR lower(email) = :value",
+      { value: login.strip.downcase}]).first
+  end
 
   STATUSES = ['pending','approved','rejected']
   
