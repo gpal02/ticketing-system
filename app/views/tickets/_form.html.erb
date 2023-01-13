@@ -16,45 +16,6 @@
     <%=form.text_field :price, value: @ticket.bus.price%>
   </div>
   
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal">
-  Select Your Seat
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="opacity: 1;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Seat</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%seats = ['0','1','2','3','4']%>
-        <%all_seats = []%>
-
-        <div class="row justify-content-center" style="padding:20px 60px;">
-          <%('A'..'O').each do |i|%>
-            <%(1..seats.length-1).each do |j|%>
-              <% if (j == 1)%>
-                <%= link_to (i+seats[j]),new_ticket_path, class: "btn btn-outline-primary my-2 mx-2 align-content-around " ,style: "width:60px" %>&nbsp &nbsp &nbsp &nbsp
-                <%else %>
-                  <%= link_to (i+seats[j]),new_ticket_path, class: "btn btn-outline-primary my-2 mx-2 align-content-around " ,style: "width:60px" %>
-              <%end%>
-            <%end%>
-            
-          <%end%>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
   <h3>Passengers</h3>
   <div id="passenger_informations">
     <%= form.simple_fields_for :passenger_informations do |passenger_information|%>
@@ -67,7 +28,7 @@
       </div>
     <%end%>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Create Ticket", class: "btn btn-primary" %>
   </div>
 
 

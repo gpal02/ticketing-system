@@ -1,9 +1,10 @@
-<h1>Buses Information</h1>
-<p>Here are the available buses, you can choose your desired bus.</p>
-
+<center>
+  <h1>Buses Information</h1>
+  <p>Here are the available buses, you can choose your desired bus.</p>
+</center>
 <div class="container mb-4 d-flex justify-content-center">
   <div class="row" >
-    <div class="card px-5 py-5" style="background-color: rgba(248, 248, 255, 0.9);">
+    <div class="card px-5 py-2" style="background-color: rgba(248, 248, 255, 0.9);">
       <center><h3 class="font-bold text-3xl mb-3">Search Buses</h3></center>
       <div class="d-flex justify-content-center">
         <%= search_form_for @q, url: :buses do |f| %>
@@ -58,7 +59,7 @@
     <center><h1>No Result Found</h1></center>
   <%end%>
   <tbody>
-    <%=Bus.where(manager_id: params[:current_user])%>
+    <%Bus.where(manager_id: params[:current_user])%>
     <% @buses.each do|bus|%>
     <tr>
       <th scope="row"><%=  bus.id%></th>
