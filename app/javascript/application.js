@@ -10,3 +10,4 @@ import "bootstrap"
 //= require @nathanvda/cocoon
 //= require @fortawesome/fontawesome-free
 //= require controllers
+import * as bootstrap from "bootstrap"
