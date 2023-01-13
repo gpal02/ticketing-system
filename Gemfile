@@ -109,7 +109,7 @@ gem 'activeadmin'
 # active merchat payment gem
 gem 'activemerchant'
 # fontawesome
-gem "font-awesome-sass", "~> 6.2.1"
+gem "font-awesome-rails"
 
 # gem for uploading files
 gem 'paperclip', '~> 6.1'

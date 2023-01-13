@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag 'application'%>
     <%= javascript_include_tag "jquery" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "custom_style", "data-turbo-track": "reload"%>
     <%= javascript_include_tag :cocoon %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "fontawesome", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom_style", "data-turbo-track": "reload"%>
 
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg p-3 mb-5 bg-body rounded">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
       <div class="container-fluid">
         <%= link_to root_path do %>
           <%= image_tag 'logo.png', width: 110, height: 60, alt: 'logo', class: "px-4"%>
@@ -65,7 +64,7 @@
     <%= yield %>
     
     <%= turbo_frame_tag "remote_modal", target: "_top" %>
-          
+    <%= render "shared/footer"%>      
   </body>
  
 </html>

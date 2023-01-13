@@ -72,7 +72,7 @@
       <td><%= bus.bus_type %></td>
       <td><%= bus.total_seats - bus.alloted_seats %></td>
       <td><%= bus.alloted_seats %></td>
-      <td><%= bus.price %></td>
+      <td><%= bus.price %> &nbsp <i class="fa-solid fa-indian-rupee-sign"></i></td>
       <% if current_user == nil or current_user.has_role? :passenger%>
         <td>
           <%= link_to "Book now", new_ticket_path(bus_id: bus.id), class: "btn btn-outline-secondary btn-sm " %>
@@ -95,4 +95,3 @@
     <%= paginate @buses %>
   </div>
 </div>
-
