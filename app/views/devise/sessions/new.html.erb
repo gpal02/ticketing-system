@@ -3,7 +3,7 @@
     <div class="card px-5 py-2 w-50"  style="background-color: ghostwhite ;">
       <h2>Log in</h2>
       <hr>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
         <div class="field my-2">
           <%= f.label :login, "Email / Username", class: "form-label" %><br />
           <%= f.text_field :login, autofocus: true, class: "form-control" %>
